@@ -98,11 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				28DD2CAC224B975E005DBA7D /* AppDelegate.swift */,
-				28DD2CAE224B975E005DBA7D /* ViewController.swift */,
-				28DD2CB0224B975E005DBA7D /* Main.storyboard */,
-				28DD2CB3224B975F005DBA7D /* Assets.xcassets */,
-				28DD2CB5224B975F005DBA7D /* LaunchScreen.storyboard */,
-				28DD2CB8224B975F005DBA7D /* Info.plist */,
+				28DD2CDC224B97C9005DBA7D /* Controller */,
+				28DD2CDB224B97C2005DBA7D /* View */,
+				28DD2CDA224B97BA005DBA7D /* Model */,
+				28DD2CDD224B97F3005DBA7D /* SupportFiles */,
 			);
 			path = "V Voice Changer";
 			sourceTree = "<group>";
@@ -123,6 +122,47 @@
 				28DD2CCE224B975F005DBA7D /* Info.plist */,
 			);
 			path = "V Voice ChangerUITests";
+			sourceTree = "<group>";
+		};
+		28DD2CDA224B97BA005DBA7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		28DD2CDB224B97C2005DBA7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28DD2CDE224B983B005DBA7D /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		28DD2CDC224B97C9005DBA7D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28DD2CAE224B975E005DBA7D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		28DD2CDD224B97F3005DBA7D /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				28DD2CB3224B975F005DBA7D /* Assets.xcassets */,
+				28DD2CB8224B975F005DBA7D /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		28DD2CDE224B983B005DBA7D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				28DD2CB5224B975F005DBA7D /* LaunchScreen.storyboard */,
+				28DD2CB0224B975E005DBA7D /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2U9XN2WL3;
-				INFOPLIST_FILE = "V Voice Changer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/V Voice Changer/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2U9XN2WL3;
-				INFOPLIST_FILE = "V Voice Changer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/V Voice Changer/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
