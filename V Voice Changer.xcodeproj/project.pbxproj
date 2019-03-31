@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284BF162224FB472003D5DB5 /* PersistenceManager.swift */; };
 		28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAC224B975E005DBA7D /* AppDelegate.swift */; };
 		28DD2CAF224B975E005DBA7D /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAE224B975E005DBA7D /* RecordViewController.swift */; };
 		28DD2CB2224B975E005DBA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DD2CB0224B975E005DBA7D /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		284BF162224FB472003D5DB5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		28DD2CA9224B975E005DBA7D /* V Voice Changer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V Voice Changer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DD2CAC224B975E005DBA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD2CAE224B975E005DBA7D /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		28DD2CDA224B97BA005DBA7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				284BF162224FB472003D5DB5 /* PersistenceManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */,
 				28DD2CAF224B975E005DBA7D /* RecordViewController.swift in Sources */,
 				28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */,
 			);
@@ -475,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2U9XN2WL3;
 				INFOPLIST_FILE = "$(SRCROOT)/V Voice Changer/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2U9XN2WL3;
 				INFOPLIST_FILE = "$(SRCROOT)/V Voice Changer/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
