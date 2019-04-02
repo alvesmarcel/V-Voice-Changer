@@ -84,7 +84,7 @@ extension RecorderViewController {
     }
     
     @objc func applicationDidEnterBackground(notification: Notification) {
-        print("Session was interrupted")
+        // Improves UX by avoiding making the user thinks that the app was still recording
         if let recorder = audioRecorder {
             recorder.stop()
         }
