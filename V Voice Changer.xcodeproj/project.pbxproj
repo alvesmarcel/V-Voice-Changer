@@ -11,6 +11,7 @@
 		285D03802251020A00922F95 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D037F2251020A00922F95 /* PlayerViewController.swift */; };
 		285D03822251072600922F95 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03812251072600922F95 /* AudioFile.swift */; };
 		285D03842252320000922F95 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03832252320000922F95 /* Alerts.swift */; };
+		285D03862253A1E200922F95 /* AudioFXProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03852253A1E200922F95 /* AudioFXProcessor.swift */; };
 		28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAC224B975E005DBA7D /* AppDelegate.swift */; };
 		28DD2CAF224B975E005DBA7D /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */; };
 		28DD2CB2224B975E005DBA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DD2CB0224B975E005DBA7D /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		285D037F2251020A00922F95 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		285D03812251072600922F95 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 		285D03832252320000922F95 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		285D03852253A1E200922F95 /* AudioFXProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFXProcessor.swift; sourceTree = "<group>"; };
 		28DD2CA9224B975E005DBA7D /* V Voice Changer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V Voice Changer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DD2CAC224B975E005DBA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */,
+				285D03852253A1E200922F95 /* AudioFXProcessor.swift */,
 				285D037F2251020A00922F95 /* PlayerViewController.swift */,
 				285D03832252320000922F95 /* Alerts.swift */,
 			);
@@ -310,6 +313,7 @@
 			files = (
 				284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */,
 				285D03802251020A00922F95 /* PlayerViewController.swift in Sources */,
+				285D03862253A1E200922F95 /* AudioFXProcessor.swift in Sources */,
 				28DD2CAF224B975E005DBA7D /* RecorderViewController.swift in Sources */,
 				28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */,
 				285D03842252320000922F95 /* Alerts.swift in Sources */,
