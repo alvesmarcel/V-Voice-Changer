@@ -15,7 +15,9 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
-        audioProcessor?.play(withEffect: .fast)
+        var effect: AudioFXProcessor.Effects = .none
+        
+        audioProcessor?.play(withEffect: .darthvader)
     }
     
 }
