@@ -13,4 +13,9 @@ class PlayerViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func playButtonTapped(_ sender: Any) {
+        audioProcessor?.play(withEffect: .fast)
+    }
+    
 }

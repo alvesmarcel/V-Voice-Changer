@@ -45,7 +45,20 @@
                     <view key="view" contentMode="scaleToFill" id="mrq-7o-P5k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8G-8y-2FF">
+                                <rect key="frame" x="192" y="433" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="VaC-2f-xe1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b8G-8y-2FF" firstAttribute="centerY" secondItem="mrq-7o-P5k" secondAttribute="centerY" id="80v-NN-WuA"/>
+                            <constraint firstItem="b8G-8y-2FF" firstAttribute="centerX" secondItem="mrq-7o-P5k" secondAttribute="centerX" id="GeK-E5-cSZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cyk-rB-xjP"/>
                     </view>
                 </viewController>
