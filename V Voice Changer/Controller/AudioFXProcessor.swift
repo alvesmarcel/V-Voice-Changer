@@ -21,6 +21,7 @@ class AudioFXProcessor {
     
     private func playAudioPlayerEffect(_ effect: Effects) {
         self.audioPlayer.rate = effect == .slow ? 0.5 : 2.0
+        print(self.audioPlayer.rate)
         audioPlayer.play()
     }
     
@@ -30,7 +31,7 @@ class AudioFXProcessor {
     
     func play(withEffect effect: Effects) {
         switch effect {
-        case .chipmunk, .fast:
+        case .slow, .fast:
             playAudioPlayerEffect(effect)
         default:
             playAudioEngineEffect(effect)
