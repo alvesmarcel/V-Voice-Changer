@@ -11,6 +11,7 @@ class PlayerViewController: UIViewController {
 // MARK: - Lifecycle
 extension PlayerViewController {
     override func viewDidLoad() {
+        super.viewDidLoad()
         if let audioFile = recordedAudio {
             do {
                 try self.audioProcessor = AudioFXProcessor(audioFile: audioFile)
@@ -18,6 +19,8 @@ extension PlayerViewController {
                 print("Error instantiating the AudioFXProcessor\n\(error.localizedDescription)")
             }
         }
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(test))
+        self.navigationItem.rightBarButtonItem  = shareButton
     }
 }
 
@@ -42,4 +45,9 @@ extension PlayerViewController {
         }
         audioProcessor?.play(withEffect: effect)
     }
+    
+    @objc func test() {
+        
+    }
 }
+

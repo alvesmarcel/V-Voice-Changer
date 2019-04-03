@@ -10,6 +10,14 @@ class RecorderViewController: UIViewController {
 
 // MARK: - Lifecycle
 extension RecorderViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "" // This removes the "Back" title from the navigation bar back button in the next screen
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 16.0/255, green: 7.0/255, blue: 30.0/255, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(notification:)), name: UIApplication.didEnterBackgroundNotification, object: nil)

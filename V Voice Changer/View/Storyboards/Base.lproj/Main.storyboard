@@ -14,18 +14,22 @@
             <objects>
                 <viewController storyboardIdentifier="RecorderViewController" id="BYZ-38-t0r" customClass="RecorderViewController" customModule="V_Voice_Changer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ry-vp-CTv">
-                                <rect key="frame" x="163" y="537" width="49" height="30"/>
-                                <state key="normal" title="Record"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ry-vp-CTv">
+                                <rect key="frame" x="142.5" y="413" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="HEx-3j-fIe"/>
+                                    <constraint firstAttribute="height" constant="90" id="JeI-aU-1cN"/>
+                                </constraints>
+                                <state key="normal" image="recordButton"/>
                                 <connections>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTe-lB-Z3A"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kEL-5P-d2t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Ry-vp-CTv" secondAttribute="bottom" constant="100" id="o8j-JI-n1x"/>
@@ -150,7 +154,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GLN-Bo-JS9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Beh-Tj-j0H">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Beh-Tj-j0H">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -184,6 +189,7 @@
         <image name="darth" width="339" height="345"/>
         <image name="jigsaw" width="339" height="345"/>
         <image name="rabbit" width="339" height="345"/>
+        <image name="recordButton" width="273" height="273"/>
         <image name="shao" width="345" height="345"/>
         <image name="turtle" width="339" height="345"/>
     </resources>

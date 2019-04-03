@@ -175,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */,
-				285D03852253A1E200922F95 /* AudioFXProcessor.swift */,
 				285D037F2251020A00922F95 /* PlayerViewController.swift */,
+				285D03852253A1E200922F95 /* AudioFXProcessor.swift */,
 				285D03832252320000922F95 /* Alerts.swift */,
 				285D038722550A6900922F95 /* SplashScreenViewController.swift */,
 			);
