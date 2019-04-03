@@ -25,10 +25,10 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.058823529411764705" green="0.031372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Br9-8c-jPH"/>
-                            <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mb3-fl-7lO"/>
+                            <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kDt-65-HxR"/>
+                            <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vkW-DE-Kbg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.058823529411764705" green="0.031372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b8G-8y-2FF" firstAttribute="centerY" secondItem="mrq-7o-P5k" secondAttribute="centerY" id="80v-NN-WuA"/>
                             <constraint firstItem="b8G-8y-2FF" firstAttribute="centerX" secondItem="mrq-7o-P5k" secondAttribute="centerX" id="GeK-E5-cSZ"/>
