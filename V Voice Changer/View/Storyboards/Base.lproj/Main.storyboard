@@ -55,57 +55,75 @@
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="leO-fp-1Ax">
                                         <rect key="frame" x="0.0" y="0.0" width="255" height="137.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbX-Kk-xa9">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TurtleButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbX-Kk-xa9" userLabel="TurtleButton">
                                                 <rect key="frame" x="0.0" y="17.5" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vbX-Kk-xa9" secondAttribute="height" multiplier="1:1" id="7Va-4A-n5u"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="turtle"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="1QG-50-VTC"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-Ip-YIv">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="RabbitButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-Ip-YIv" userLabel="RabbitButton">
                                                 <rect key="frame" x="152.5" y="17.5" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KwE-Ip-YIv" secondAttribute="height" multiplier="1:1" id="FKK-ie-s7w"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="rabbit"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="N9c-Uj-y5H"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="veV-DW-Fle">
                                         <rect key="frame" x="0.0" y="137.5" width="255" height="138"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-0w-4Hr">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AlienButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-0w-4Hr" userLabel="AlienButton">
                                                 <rect key="frame" x="0.0" y="18" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Nxy-0w-4Hr" secondAttribute="height" multiplier="1:1" id="DyV-ti-Yhj"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="alien"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="tUf-jF-zs9"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHB-B4-Iwf">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="DarthButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHB-B4-Iwf" userLabel="DarthButton">
                                                 <rect key="frame" x="152.5" y="18" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tHB-B4-Iwf" secondAttribute="height" multiplier="1:1" id="ZbJ-N1-d7o"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="darth"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="p2V-7N-5V5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cfn-Ja-BpX">
                                         <rect key="frame" x="0.0" y="275.5" width="255" height="137.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-gT-hxw">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ShaoButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-gT-hxw" userLabel="ShaoButton">
                                                 <rect key="frame" x="0.0" y="17.5" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="fFR-gT-hxw" secondAttribute="height" multiplier="1:1" id="8CY-NA-qQS"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="shao"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="90w-BQ-DBX"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USS-0Y-OyZ">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="JigsawButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USS-0Y-OyZ" userLabel="JigsawButton">
                                                 <rect key="frame" x="152.5" y="17.5" width="102.5" height="102.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="USS-0Y-OyZ" secondAttribute="height" multiplier="1:1" id="amt-Hi-QVO"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="jigsaw"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="41a-yK-ion"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
