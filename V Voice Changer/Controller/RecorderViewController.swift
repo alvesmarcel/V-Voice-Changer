@@ -1,7 +1,9 @@
 import UIKit
 import AVFoundation
+import Lottie
 
 class RecorderViewController: UIViewController {
+    @IBOutlet weak var recordButton: UIButton!
     private var audioRecorder: AVAudioRecorder?
     private var audioSession = AVAudioSession.sharedInstance()
 }
