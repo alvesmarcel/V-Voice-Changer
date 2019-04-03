@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		086E6710BF702EFA1B7ABE7B /* libPods-V Voice Changer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6A942A658A8C280944AEA /* libPods-V Voice Changer.a */; };
 		284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284BF162224FB472003D5DB5 /* PersistenceManager.swift */; };
 		285D03802251020A00922F95 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D037F2251020A00922F95 /* PlayerViewController.swift */; };
 		285D03822251072600922F95 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03812251072600922F95 /* AudioFile.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C7DC5CCE834E853F2211723 /* Pods-V Voice Changer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V Voice Changer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V Voice Changer/Pods-V Voice Changer.debug.xcconfig"; sourceTree = "<group>"; };
 		284BF162224FB472003D5DB5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		285D037F2251020A00922F95 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		285D03812251072600922F95 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		28DD2CC8224B975F005DBA7D /* V Voice ChangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "V Voice ChangerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DD2CCC224B975F005DBA7D /* V_Voice_ChangerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V_Voice_ChangerUITests.swift; sourceTree = "<group>"; };
 		28DD2CCE224B975F005DBA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93C6A942A658A8C280944AEA /* libPods-V Voice Changer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-V Voice Changer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F124A7647C94D5F12876C723 /* Pods-V Voice Changer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V Voice Changer.release.xcconfig"; path = "Pods/Target Support Files/Pods-V Voice Changer/Pods-V Voice Changer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086E6710BF702EFA1B7ABE7B /* libPods-V Voice Changer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23079B8876716ACBFC62F49D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93C6A942A658A8C280944AEA /* libPods-V Voice Changer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		28DD2CA0224B975D005DBA7D = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,8 @@
 				28DD2CC0224B975F005DBA7D /* V Voice ChangerTests */,
 				28DD2CCB224B975F005DBA7D /* V Voice ChangerUITests */,
 				28DD2CAA224B975E005DBA7D /* Products */,
+				8378EBA8744E45AB5BB34FEF /* Pods */,
+				23079B8876716ACBFC62F49D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +195,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		8378EBA8744E45AB5BB34FEF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C7DC5CCE834E853F2211723 /* Pods-V Voice Changer.debug.xcconfig */,
+				F124A7647C94D5F12876C723 /* Pods-V Voice Changer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28DD2CD1224B975F005DBA7D /* Build configuration list for PBXNativeTarget "V Voice Changer" */;
 			buildPhases = (
+				AE5117B26EA7270D20BD4C1B /* [CP] Check Pods Manifest.lock */,
 				28DD2CA5224B975D005DBA7D /* Sources */,
 				28DD2CA6224B975D005DBA7D /* Frameworks */,
 				28DD2CA7224B975D005DBA7D /* Resources */,
@@ -305,6 +330,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE5117B26EA7270D20BD4C1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-V Voice Changer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28DD2CA5224B975D005DBA7D /* Sources */ = {
@@ -490,6 +540,7 @@
 		};
 		28DD2CD2224B975F005DBA7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C7DC5CCE834E853F2211723 /* Pods-V Voice Changer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -509,6 +560,7 @@
 		};
 		28DD2CD3224B975F005DBA7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F124A7647C94D5F12876C723 /* Pods-V Voice Changer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

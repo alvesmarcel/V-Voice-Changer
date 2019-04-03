@@ -1,0 +1,6 @@
+module Pods_V_Voice_Changer {
+  umbrella header "Pods-V Voice Changer-umbrella.h"
+
+  export *
+  module * { export * }
+}
