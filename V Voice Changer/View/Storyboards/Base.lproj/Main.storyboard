@@ -66,7 +66,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <state key="selected" image="shao"/>
+                                                <state key="selected" image="blur-turtle"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="1QG-50-VTC"/>
                                                 </connections>
@@ -77,6 +77,7 @@
                                                     <constraint firstAttribute="width" secondItem="KwE-Ip-YIv" secondAttribute="height" multiplier="1:1" id="FKK-ie-s7w"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="rabbit"/>
+                                                <state key="selected" image="blur-rabbit"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="N9c-Uj-y5H"/>
                                                 </connections>
@@ -92,6 +93,7 @@
                                                     <constraint firstAttribute="width" secondItem="Nxy-0w-4Hr" secondAttribute="height" multiplier="1:1" id="DyV-ti-Yhj"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="alien"/>
+                                                <state key="selected" image="blur-alien"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="tUf-jF-zs9"/>
                                                 </connections>
@@ -102,6 +104,7 @@
                                                     <constraint firstAttribute="width" secondItem="tHB-B4-Iwf" secondAttribute="height" multiplier="1:1" id="ZbJ-N1-d7o"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="darth"/>
+                                                <state key="selected" image="blur-darth"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="p2V-7N-5V5"/>
                                                 </connections>
@@ -117,6 +120,7 @@
                                                     <constraint firstAttribute="width" secondItem="fFR-gT-hxw" secondAttribute="height" multiplier="1:1" id="8CY-NA-qQS"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="shao"/>
+                                                <state key="selected" image="blur-shao"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="90w-BQ-DBX"/>
                                                 </connections>
@@ -127,6 +131,7 @@
                                                     <constraint firstAttribute="width" secondItem="USS-0Y-OyZ" secondAttribute="height" multiplier="1:1" id="amt-Hi-QVO"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="jigsaw"/>
+                                                <state key="selected" image="blur-jigsaw"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="41a-yK-ion"/>
                                                 </connections>
@@ -185,9 +190,26 @@
                     <view key="view" contentMode="scaleToFill" id="gGd-bJ-D0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-NM-uoe" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="87.5" y="258.5" width="200" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="UIL-Ne-vOL"/>
+                                    <constraint firstAttribute="width" constant="200" id="Wks-w8-zPN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FN1-NM-uoe" firstAttribute="centerX" secondItem="gGd-bJ-D0g" secondAttribute="centerX" id="4n4-vO-EgJ"/>
+                            <constraint firstItem="FN1-NM-uoe" firstAttribute="centerY" secondItem="gGd-bJ-D0g" secondAttribute="centerY" id="qTC-7R-Gbw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="foh-aF-Ug7"/>
                     </view>
+                    <connections>
+                        <outlet property="animationView" destination="FN1-NM-uoe" id="tN3-cU-JVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipZ-oJ-8W3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,6 +218,12 @@
     </scenes>
     <resources>
         <image name="alien" width="339" height="345"/>
+        <image name="blur-alien" width="399" height="399"/>
+        <image name="blur-darth" width="399" height="399"/>
+        <image name="blur-jigsaw" width="399" height="399"/>
+        <image name="blur-rabbit" width="399" height="399"/>
+        <image name="blur-shao" width="399" height="399"/>
+        <image name="blur-turtle" width="399" height="399"/>
         <image name="darth" width="339" height="345"/>
         <image name="jigsaw" width="339" height="345"/>
         <image name="rabbit" width="339" height="345"/>
