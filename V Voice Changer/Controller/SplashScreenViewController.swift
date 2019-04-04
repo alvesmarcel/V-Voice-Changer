@@ -14,6 +14,7 @@ class SplashScreenViewController: UIViewController {
         let animationView = AnimationView(name: "audio_wave_animation")
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 300)
         animationView.center = self.view.center
+        animationView.animationSpeed = 0.6
         //animationView.contentMode = .scaleAspectFill
         //animationView.loopMode = LottieLoopMode.loop
         self.view.addSubview(animationView)
@@ -23,7 +24,8 @@ class SplashScreenViewController: UIViewController {
                     print("PlayerViewController could not be instantiated")
                     return
                 }
-                self?.transition(from: self!, to: playerVC, duration: 3.0, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                self?.show(playerVC, sender: nil)
+                //self?.transition(from: self!, to: playerVC, duration: 3.0, options: .transitionCrossDissolve, animations: nil, completion: nil)
             }
         }
         
