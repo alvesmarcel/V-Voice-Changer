@@ -3,7 +3,7 @@ import AVFoundation
 import Lottie
 
 class RecorderViewController: UIViewController {
-    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var recordButton: AnimationView!
     private var audioRecorder: AVAudioRecorder?
     private var audioSession = AVAudioSession.sharedInstance()
 }
@@ -12,14 +12,12 @@ class RecorderViewController: UIViewController {
 extension RecorderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "" // This removes the "Back" title from the navigation bar back button in the next screen
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barTintColor = UIColor(red: 16.0/255, green: 7.0/255, blue: 30.0/255, alpha: 1.0)
-        navigationController?.navigationBar.tintColor = .white
+        configureView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureAudioRecorder()
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(notification:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
@@ -31,15 +29,14 @@ extension RecorderViewController {
 
 // MARK: - Actions
 extension RecorderViewController {
-    @IBAction func recordButtonTapped(_ sender: UIButton) {
-        if self.audioRecorder == nil {
-            configureAudioRecorder()
-        }
+    @objc func recordButtonTapped() {
         if let recorder = self.audioRecorder {
             if recorder.isRecording {
                 recorder.stop()
+                recordButton.stop()
             } else {
                 recorder.record()
+                recordButton.play()
             }
         }
     }
@@ -91,6 +88,20 @@ extension RecorderViewController {
             Alerts.show(error: .audioRecorder, viewController: self)
             return
         }
+    }
+    
+    func configureView() {
+        // Set up navigation bar
+        title = "" // Removes the "Back" title from the navigation bar back button in the next screen
+        navigationController?.navigationBar.shadowImage = UIImage() // Removes the separator line of the navigation bar
+        navigationController?.navigationBar.barTintColor = UIColor(red: 16.0/255, green: 7.0/255, blue: 30.0/255, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = .white
+        
+        // Set up the record button and its animation
+        let touchUpInside = UITapGestureRecognizer(target: self, action: #selector(recordButtonTapped))
+        recordButton.addGestureRecognizer(touchUpInside)
+        recordButton.animation = Animation.named("record_button_animation")
+        recordButton.loopMode = .loop
     }
     
     @objc func applicationDidEnterBackground(notification: Notification) {

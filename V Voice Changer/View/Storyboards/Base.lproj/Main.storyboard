@@ -17,33 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ry-vp-CTv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tg-tz-IA8" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="142.5" y="413" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="HEx-3j-fIe"/>
-                                    <constraint firstAttribute="height" constant="90" id="JeI-aU-1cN"/>
+                                    <constraint firstAttribute="height" constant="90" id="Xyq-hd-fMj"/>
+                                    <constraint firstAttribute="width" constant="90" id="bXR-G3-2Xc"/>
                                 </constraints>
-                                <state key="normal" image="recordButton"/>
-                                <connections>
-                                    <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTe-lB-Z3A"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Ry-vp-CTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kEL-5P-d2t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Ry-vp-CTv" secondAttribute="bottom" constant="100" id="o8j-JI-n1x"/>
+                            <constraint firstItem="7Tg-tz-IA8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Lz-l7-24B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Tg-tz-IA8" secondAttribute="bottom" constant="100" id="6yb-oz-rGQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hdy-0v-cmh"/>
                     <connections>
-                        <outlet property="recordButton" destination="6Ry-vp-CTv" id="i3e-bM-C5F"/>
+                        <outlet property="recordButton" destination="7Tg-tz-IA8" id="gD6-fw-Mgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="20.758928571428569"/>
+            <point key="canvasLocation" x="1576.8" y="20.239880059970016"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="w4o-uM-wmL">
@@ -189,7 +186,6 @@
         <image name="darth" width="339" height="345"/>
         <image name="jigsaw" width="339" height="345"/>
         <image name="rabbit" width="339" height="345"/>
-        <image name="recordButton" width="273" height="273"/>
         <image name="shao" width="345" height="345"/>
         <image name="turtle" width="339" height="345"/>
     </resources>
