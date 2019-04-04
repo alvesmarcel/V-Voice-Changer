@@ -1,6 +1,16 @@
 import UIKit
 
 class PlayerViewController: UIViewController {
+    
+    @IBOutlet weak var turtleButton: UIButton!
+    @IBOutlet weak var rabbitButton: UIButton!
+    @IBOutlet weak var alienButton: UIButton!
+    @IBOutlet weak var darthButton: UIButton!
+    @IBOutlet weak var shaoButton: UIButton!
+    @IBOutlet weak var jigsawButton: UIButton!
+    
+    private var selectedButton: UIButton?
+    
     var recordedAudio: AudioFile?
     private var audioProcessor: AudioFXProcessor?
     private enum ButtonIdentifier: String {
@@ -28,6 +38,7 @@ extension PlayerViewController {
 extension PlayerViewController {
     @IBAction func playButtonTapped(_ sender: UIButton) {
         guard let identifier = sender.restorationIdentifier, let enumId = ButtonIdentifier(rawValue: identifier) else { return }
+        configureButtonUI(button: sender)
         var effect: AudioFXProcessor.Effects = .none
         switch enumId {
         case .TurtleButton:
@@ -44,6 +55,11 @@ extension PlayerViewController {
             effect = .jigsaw
         }
         audioProcessor?.play(withEffect: effect)
+    }
+    
+    func configureButtonUI(button: UIButton) {
+        // Update button UI
+        
     }
     
     @objc func test() {

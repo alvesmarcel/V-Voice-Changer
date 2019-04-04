@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GLN-Bo-JS9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y0-a3-Rgf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,10 +58,15 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TurtleButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbX-Kk-xa9" userLabel="TurtleButton">
                                                 <rect key="frame" x="0.0" y="17.5" width="102.5" height="102.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vbX-Kk-xa9" secondAttribute="height" multiplier="1:1" id="7Va-4A-n5u"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="turtle"/>
+                                                <state key="normal" image="turtle">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="selected" image="shao"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="1QG-50-VTC"/>
                                                 </connections>
@@ -141,6 +146,14 @@
                         <viewLayoutGuide key="safeArea" id="cyk-rB-xjP"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="alienButton" destination="Nxy-0w-4Hr" id="Ier-p3-cU5"/>
+                        <outlet property="darthButton" destination="tHB-B4-Iwf" id="A9L-P9-j7n"/>
+                        <outlet property="jigsawButton" destination="USS-0Y-OyZ" id="Tqw-8n-mMf"/>
+                        <outlet property="rabbitButton" destination="KwE-Ip-YIv" id="rZL-CL-Phi"/>
+                        <outlet property="shaoButton" destination="fFR-gT-hxw" id="7zO-Pd-nPH"/>
+                        <outlet property="turtleButton" destination="vbX-Kk-xa9" id="zNk-PH-Ax7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFn-0S-I7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +162,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ope-nB-MvL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GLN-Bo-JS9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="GLN-Bo-JS9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Beh-Tj-j0H">

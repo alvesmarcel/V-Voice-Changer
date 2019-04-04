@@ -17,6 +17,16 @@ class SplashScreenViewController: UIViewController {
         //animationView.contentMode = .scaleAspectFill
         //animationView.loopMode = LottieLoopMode.loop
         self.view.addSubview(animationView)
-        animationView.play()
+        animationView.play { [weak self] (success) in
+            DispatchQueue.main.async {
+                guard let playerVC = self?.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else {
+                    print("PlayerViewController could not be instantiated")
+                    return
+                }
+                self?.transition(from: self!, to: playerVC, duration: 3.0, options: .transitionCrossDissolve, animations: nil, completion: nil)
+            }
+        }
+        
+        
     }
 }
