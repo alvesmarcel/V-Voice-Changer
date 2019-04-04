@@ -58,8 +58,11 @@ extension PlayerViewController {
     }
     
     func configureButtonUI(button: UIButton) {
-        // Update button UI
-        
+        button.isSelected = true
+        if let previousButton = selectedButton, previousButton != button {
+            previousButton.isSelected = false
+        }
+        selectedButton = button
     }
     
     @objc func test() {
