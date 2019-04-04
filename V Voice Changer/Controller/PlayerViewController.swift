@@ -29,7 +29,7 @@ extension PlayerViewController {
                 print("Error instantiating the AudioFXProcessor\n\(error.localizedDescription)")
             }
         }
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(test))
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
         self.navigationItem.rightBarButtonItem  = shareButton
     }
 }
@@ -57,6 +57,17 @@ extension PlayerViewController {
         audioProcessor?.play(withEffect: effect)
     }
     
+    @objc func shareButtonTapped() {
+        guard let audio = recordedAudio else { return }
+        let activityViewController = UIActivityViewController(activityItems: [audio.url], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        activityViewController.excludedActivityTypes = [.airDrop]
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Helper
+extension PlayerViewController {
     func configureButtonUI(button: UIButton) {
         button.isSelected = true
         if let previousButton = selectedButton, previousButton != button {
@@ -64,9 +75,4 @@ extension PlayerViewController {
         }
         selectedButton = button
     }
-    
-    @objc func test() {
-        
-    }
 }
-
