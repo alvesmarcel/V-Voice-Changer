@@ -1,6 +1,3 @@
-// TODO: Offline audio processing
-// - https://stackoverflow.com/questions/30679061/can-i-use-avaudioengine-to-read-from-a-file-process-with-an-audio-unit-and-writ?rq=1
-
 import UIKit
 
 class PlayerViewController: UIViewController {
@@ -12,9 +9,9 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var shaoButton: UIButton!
     @IBOutlet weak var jigsawButton: UIButton!
     
-    private var selectedButton: UIButton?
-    
     var recordedAudio: AudioFile?
+    
+    private var selectedButton: UIButton?
     private var audioProcessor: AudioFXProcessor?
     private enum ButtonIdentifier: String {
         case TurtleButton, RabbitButton, AlienButton, DarthButton, ShaoButton, JigsawButton
@@ -29,12 +26,11 @@ extension PlayerViewController {
             do {
                 try self.audioProcessor = AudioFXProcessor(audioFile: audioFile)
             } catch {
-                print("Error instantiating the AudioFXProcessor\n\(error.localizedDescription)")
+                Alerts.present(error: .audioEngine, sender: self)
             }
         }
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
         self.navigationItem.rightBarButtonItem  = shareButton
-        saveEffectsFiles()
     }
 }
 
@@ -103,7 +99,7 @@ extension PlayerViewController {
                 }
             }
         } catch {
-            print("Error getting effect file URL")
+            Alerts.present(error: .url, sender: self)
         }
         return url
     }
