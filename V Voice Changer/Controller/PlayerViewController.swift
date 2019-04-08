@@ -1,3 +1,6 @@
+// TODO: Offline audio processing
+// - https://stackoverflow.com/questions/30679061/can-i-use-avaudioengine-to-read-from-a-file-process-with-an-audio-unit-and-writ?rq=1
+
 import UIKit
 
 class PlayerViewController: UIViewController {
@@ -31,6 +34,7 @@ extension PlayerViewController {
         }
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
         self.navigationItem.rightBarButtonItem  = shareButton
+        saveEffectsFiles()
     }
 }
 
@@ -39,7 +43,7 @@ extension PlayerViewController {
     @IBAction func playButtonTapped(_ sender: UIButton) {
         guard let identifier = sender.restorationIdentifier, let enumId = ButtonIdentifier(rawValue: identifier) else { return }
         configureButtonUI(button: sender)
-        var effect: AudioFXProcessor.Effects = .none
+        var effect: AudioFXProcessor.Effect = .none
         switch enumId {
         case .TurtleButton:
             effect = .slow
@@ -58,11 +62,12 @@ extension PlayerViewController {
     }
     
     @objc func shareButtonTapped() {
-        guard let audio = recordedAudio else { return }
-        let activityViewController = UIActivityViewController(activityItems: [audio.url], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        activityViewController.excludedActivityTypes = [.airDrop]
-        self.present(activityViewController, animated: true, completion: nil)
+        if let fileURL = urlFileForSelectedButton() {
+            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            activityViewController.excludedActivityTypes = [.airDrop]
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -74,5 +79,42 @@ extension PlayerViewController {
             previousButton.isSelected = false
         }
         selectedButton = button
+    }
+    
+    func urlFileForSelectedButton() -> URL? {
+        var url: URL?
+        do {
+            if let selected = selectedButton {
+                switch selected {
+                case turtleButton:
+                    url = try PersistenceManager.shared.urlForEffect(.slow)
+                case rabbitButton:
+                    url = try PersistenceManager.shared.urlForEffect(.fast)
+                case alienButton:
+                    url = try PersistenceManager.shared.urlForEffect(.chipmunk)
+                case darthButton:
+                    url = try PersistenceManager.shared.urlForEffect(.darthvader)
+                case shaoButton:
+                    url = try PersistenceManager.shared.urlForEffect(.shaokahn)
+                case jigsawButton:
+                    url = try PersistenceManager.shared.urlForEffect(.jigsaw)
+                default:
+                    print("No known button selected")
+                }
+            }
+        } catch {
+            print("Error getting effect file URL")
+        }
+        return url
+    }
+    
+    func saveEffectsFiles() {
+        for effect in AudioFXProcessor.Effect.allValues {
+            audioProcessor?.manualAudioRender(effect: effect, completionHandler: { (url, error) in
+                if let error = error {
+                    print("Error rendering audio file.\n\(error.localizedDescription)")
+                }
+            })
+        }
     }
 }

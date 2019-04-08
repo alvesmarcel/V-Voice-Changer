@@ -4,6 +4,7 @@ import Lottie
 
 class RecorderViewController: UIViewController {
     @IBOutlet weak var recordButton: AnimationView!
+    @IBOutlet weak var recordingAnimationView: AnimationView!
     private var audioRecorder: AVAudioRecorder?
     private var audioSession = AVAudioSession.sharedInstance()
 }
@@ -34,9 +35,11 @@ extension RecorderViewController {
             if recorder.isRecording {
                 recorder.stop()
                 recordButton.stop()
+                recordingAnimationView.stop()
             } else {
                 recorder.record()
                 recordButton.play()
+                recordingAnimationView.play()
             }
         }
     }
@@ -102,6 +105,9 @@ extension RecorderViewController {
         recordButton.addGestureRecognizer(touchUpInside)
         recordButton.animation = Animation.named("record_button_animation")
         recordButton.loopMode = .loop
+        
+        recordingAnimationView.animation = Animation.named("recording_animation")
+        recordingAnimationView.loopMode = .loop
     }
     
     @objc func applicationDidEnterBackground(notification: Notification) {

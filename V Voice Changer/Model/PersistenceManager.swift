@@ -9,6 +9,10 @@ class PersistenceManager {
     private init() {}
     static let shared = PersistenceManager()
     
+    func urlForEffect(_ effect: AudioFXProcessor.Effect) throws -> URL {
+        return try urlForFile(named: effect.rawValue)
+    }
+    
     func urlForFile(named fileName: String) throws -> URL {
         let fileName = "\(fileName)\(fileExtension)"
         let fileManager = FileManager.default

@@ -1,7 +1,7 @@
 import AVFoundation
 
 class AudioFXProcessor {
-    enum Effects {
+    enum Effect: String {
         case none
         case slow
         case fast
@@ -9,15 +9,89 @@ class AudioFXProcessor {
         case chipmunk
         case jigsaw
         case shaokahn
+        
+        static let allValues = [none, slow, fast, darthvader, chipmunk, jigsaw, shaokahn]
     }
     
-    private let audioEngine: AVAudioEngine!
     private let avAudioFile: AVAudioFile!
+    private let audioEngine = AVAudioEngine()
+    private let audioPlayerNode = AVAudioPlayerNode()
+    private let maxNumberOfFrames: AVAudioFrameCount = 8096
     
     init(audioFile: AudioFile) throws {
-        self.audioEngine = AVAudioEngine()
         self.avAudioFile = try AVAudioFile(forReading: audioFile.url)
-        print(avAudioFile.url)
+    }
+    
+    private func configureAudioEngineForEffect(_ effect: Effect) {
+        audioEngine.stop()
+        audioEngine.reset()
+        audioEngine.attach(audioPlayerNode)
+        var previousNode: AVAudioNode = audioPlayerNode
+        for audioUnit in getAudioUnits(effect: effect) {
+            audioEngine.attach(audioUnit)
+            audioEngine.connect(previousNode, to: audioUnit, format: nil)
+            previousNode = audioUnit
+        }
+        audioEngine.connect(previousNode, to: audioEngine.outputNode, format: nil)
+    }
+    
+    func manualAudioRender(effect: Effect, completionHandler: (_ outputFileURL: URL?, _ error: Error?) -> Void) {
+        configureAudioEngineForEffect(effect)
+        
+        audioPlayerNode.scheduleFile(avAudioFile, at: nil)
+        do {
+            try self.audioEngine.enableManualRenderingMode(.offline, format: avAudioFile.processingFormat, maximumFrameCount: maxNumberOfFrames)
+        } catch {
+            completionHandler(nil, error)
+            return
+        }
+        
+        do {
+            try audioEngine.start()
+            audioPlayerNode.play()
+        } catch {
+            completionHandler(nil, error)
+            return
+        }
+        
+        let outputFile: AVAudioFile
+        do {
+            let url = try PersistenceManager.shared.urlForFile(named: effect.rawValue)
+//            if FileManager.default.fileExists(atPath: url.path) {
+//                try? FileManager.default.removeItem(at: url)
+//            }
+            
+            let recordSettings = avAudioFile.fileFormat.settings
+            outputFile = try AVAudioFile(forWriting: url, settings: recordSettings)
+        } catch {
+            completionHandler(nil, error)
+            return
+        }
+        
+        let buffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
+        
+        while audioEngine.manualRenderingSampleTime < avAudioFile.length {
+            do {
+                let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(avAudioFile.length - audioEngine.manualRenderingSampleTime))
+                let status = try audioEngine.renderOffline(framesToRender, to: buffer)
+                switch status {
+                case .success:
+                    try outputFile.write(from: buffer)
+                case .error:
+                    completionHandler(nil, NSError(domain: "Render offline error", code: status.rawValue, userInfo: nil))
+                    return
+                default:
+                    break
+                }
+            } catch {
+                completionHandler(nil, error)
+                return
+            }
+        }
+        
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        completionHandler(outputFile.url, nil)
     }
     
     private func getPreprocessorAudioUnit() -> AVAudioUnitEQ {
@@ -41,7 +115,7 @@ class AudioFXProcessor {
         return eq
     }
     
-    private func getAudioUnits(effect: Effects) -> [AVAudioUnit] {
+    private func getAudioUnits(effect: Effect) -> [AVAudioUnit] {
         var effectsArray: [AVAudioUnit] = [getPreprocessorAudioUnit()]
         switch effect {
         case .slow:
@@ -86,26 +160,17 @@ class AudioFXProcessor {
         return effectsArray
     }
 
-    func play(withEffect effect: Effects) {
-        audioEngine.stop()
-        audioEngine.reset()
-        let audioPlayerNode = AVAudioPlayerNode()
-        var previousNode: AVAudioNode = audioPlayerNode
-        audioEngine.attach(previousNode)
-        for audioUnit in getAudioUnits(effect: effect) {
-            audioEngine.attach(audioUnit)
-            audioEngine.connect(previousNode, to: audioUnit, format: nil)
-            previousNode = audioUnit
+    func play(withEffect effect: Effect) {
+        if audioEngine.isInManualRenderingMode {
+            audioEngine.disableManualRenderingMode()
         }
-        audioEngine.connect(previousNode, to: audioEngine.outputNode, format: nil)
-        
+        configureAudioEngineForEffect(effect)
         audioPlayerNode.scheduleFile(avAudioFile, at: nil, completionHandler: nil)
         do {
             try audioEngine.start()
         } catch let error as NSError {
             print("Error starting audio engine.\n\(error.localizedDescription)")
         }
-        
         audioPlayerNode.play()
     }
 }

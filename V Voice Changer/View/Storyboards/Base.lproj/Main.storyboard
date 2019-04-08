@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y0-a3-Rgf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GLN-Bo-JS9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,17 +25,28 @@
                                     <constraint firstAttribute="width" constant="90" id="bXR-G3-2Xc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QN-ip-7gr" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="87.5" y="111" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="GdO-o9-8eA"/>
+                                    <constraint firstAttribute="width" constant="200" id="HMe-r6-00q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7Tg-tz-IA8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Lz-l7-24B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Tg-tz-IA8" secondAttribute="bottom" constant="100" id="6yb-oz-rGQ"/>
+                            <constraint firstItem="1QN-ip-7gr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.7" id="QmQ-WC-1Xq"/>
+                            <constraint firstItem="1QN-ip-7gr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rFj-Bi-WSP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hdy-0v-cmh"/>
                     <connections>
                         <outlet property="recordButton" destination="7Tg-tz-IA8" id="gD6-fw-Mgg"/>
+                        <outlet property="recordingAnimationView" destination="1QN-ip-7gr" id="o33-lG-DNw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -51,33 +62,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-wH-5eS" userLabel="Main Stack View">
-                                <rect key="frame" x="60" y="124" width="255" height="413"/>
+                                <rect key="frame" x="50" y="114" width="275" height="433"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="leO-fp-1Ax">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="137.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="144.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="TurtleButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbX-Kk-xa9" userLabel="TurtleButton">
-                                                <rect key="frame" x="0.0" y="17.5" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="0.0" y="16" width="112.5" height="112.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vbX-Kk-xa9" secondAttribute="height" multiplier="1:1" id="7Va-4A-n5u"/>
                                                 </constraints>
-                                                <state key="normal" image="turtle">
+                                                <state key="normal" image="normal-turtle">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <state key="selected" image="blur-turtle"/>
+                                                <state key="selected" image="selected-turtle"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="1QG-50-VTC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="RabbitButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-Ip-YIv" userLabel="RabbitButton">
-                                                <rect key="frame" x="152.5" y="17.5" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="162.5" y="16" width="112.5" height="112.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KwE-Ip-YIv" secondAttribute="height" multiplier="1:1" id="FKK-ie-s7w"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="rabbit"/>
-                                                <state key="selected" image="blur-rabbit"/>
+                                                <state key="normal" title="Button" image="normal-rabbit"/>
+                                                <state key="selected" image="selected-rabbit"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="N9c-Uj-y5H"/>
                                                 </connections>
@@ -85,26 +96,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="veV-DW-Fle">
-                                        <rect key="frame" x="0.0" y="137.5" width="255" height="138"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="275" height="144"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AlienButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-0w-4Hr" userLabel="AlienButton">
-                                                <rect key="frame" x="0.0" y="18" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="0.0" y="16" width="112.5" height="112.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Nxy-0w-4Hr" secondAttribute="height" multiplier="1:1" id="DyV-ti-Yhj"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="alien"/>
-                                                <state key="selected" image="blur-alien"/>
+                                                <state key="normal" title="Button" image="normal-alien"/>
+                                                <state key="selected" image="selected-alien"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="tUf-jF-zs9"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="DarthButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHB-B4-Iwf" userLabel="DarthButton">
-                                                <rect key="frame" x="152.5" y="18" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="162.5" y="16" width="112.5" height="112.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tHB-B4-Iwf" secondAttribute="height" multiplier="1:1" id="ZbJ-N1-d7o"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="darth"/>
-                                                <state key="selected" image="blur-darth"/>
+                                                <state key="normal" title="Button" image="normal-darth"/>
+                                                <state key="selected" image="selected-darth"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="p2V-7N-5V5"/>
                                                 </connections>
@@ -112,26 +123,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cfn-Ja-BpX">
-                                        <rect key="frame" x="0.0" y="275.5" width="255" height="137.5"/>
+                                        <rect key="frame" x="0.0" y="288.5" width="275" height="144.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ShaoButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-gT-hxw" userLabel="ShaoButton">
-                                                <rect key="frame" x="0.0" y="17.5" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="0.0" y="16" width="112.5" height="112.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="fFR-gT-hxw" secondAttribute="height" multiplier="1:1" id="8CY-NA-qQS"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="shao"/>
-                                                <state key="selected" image="blur-shao"/>
+                                                <state key="normal" title="Button" image="normal-shao"/>
+                                                <state key="selected" image="selected-shao"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="90w-BQ-DBX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="JigsawButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USS-0Y-OyZ" userLabel="JigsawButton">
-                                                <rect key="frame" x="152.5" y="17.5" width="102.5" height="102.5"/>
+                                                <rect key="frame" x="162.5" y="16" width="112.5" height="112.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="USS-0Y-OyZ" secondAttribute="height" multiplier="1:1" id="amt-Hi-QVO"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="jigsaw"/>
-                                                <state key="selected" image="blur-jigsaw"/>
+                                                <state key="normal" title="Button" image="normal-jigsaw"/>
+                                                <state key="selected" image="selected-jigsaw"/>
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="GKe-ar-zqk" eventType="touchUpInside" id="41a-yK-ion"/>
                                                 </connections>
@@ -143,10 +154,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="z7k-wH-5eS" firstAttribute="top" secondItem="cyk-rB-xjP" secondAttribute="top" constant="60" id="4Zq-Dd-J1g"/>
-                            <constraint firstItem="cyk-rB-xjP" firstAttribute="bottom" secondItem="z7k-wH-5eS" secondAttribute="bottom" constant="130" id="5cJ-8t-USj"/>
-                            <constraint firstItem="z7k-wH-5eS" firstAttribute="leading" secondItem="cyk-rB-xjP" secondAttribute="leading" constant="60" id="qhS-lw-per"/>
-                            <constraint firstItem="cyk-rB-xjP" firstAttribute="trailing" secondItem="z7k-wH-5eS" secondAttribute="trailing" constant="60" id="zPn-wn-nCU"/>
+                            <constraint firstItem="z7k-wH-5eS" firstAttribute="top" secondItem="cyk-rB-xjP" secondAttribute="top" constant="50" id="4Zq-Dd-J1g"/>
+                            <constraint firstItem="cyk-rB-xjP" firstAttribute="bottom" secondItem="z7k-wH-5eS" secondAttribute="bottom" constant="120" id="5cJ-8t-USj"/>
+                            <constraint firstItem="z7k-wH-5eS" firstAttribute="leading" secondItem="cyk-rB-xjP" secondAttribute="leading" constant="50" id="qhS-lw-per"/>
+                            <constraint firstItem="cyk-rB-xjP" firstAttribute="trailing" secondItem="z7k-wH-5eS" secondAttribute="trailing" constant="50" id="zPn-wn-nCU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cyk-rB-xjP"/>
                     </view>
@@ -183,51 +194,19 @@
             </objects>
             <point key="canvasLocation" x="732" y="21"/>
         </scene>
-        <!--Splash Screen-->
-        <scene sceneID="90A-Se-DIz">
-            <objects>
-                <viewController title="Splash Screen" id="8Y0-a3-Rgf" customClass="SplashScreenViewController" customModule="V_Voice_Changer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gGd-bJ-D0g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-NM-uoe" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="87.5" y="258.5" width="200" height="150"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="UIL-Ne-vOL"/>
-                                    <constraint firstAttribute="width" constant="200" id="Wks-w8-zPN"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="FN1-NM-uoe" firstAttribute="centerX" secondItem="gGd-bJ-D0g" secondAttribute="centerX" id="4n4-vO-EgJ"/>
-                            <constraint firstItem="FN1-NM-uoe" firstAttribute="centerY" secondItem="gGd-bJ-D0g" secondAttribute="centerY" id="qTC-7R-Gbw"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="foh-aF-Ug7"/>
-                    </view>
-                    <connections>
-                        <outlet property="animationView" destination="FN1-NM-uoe" id="tN3-cU-JVA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ipZ-oJ-8W3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="732" y="686"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="alien" width="339" height="345"/>
-        <image name="blur-alien" width="399" height="399"/>
-        <image name="blur-darth" width="399" height="399"/>
-        <image name="blur-jigsaw" width="399" height="399"/>
-        <image name="blur-rabbit" width="399" height="399"/>
-        <image name="blur-shao" width="399" height="399"/>
-        <image name="blur-turtle" width="399" height="399"/>
-        <image name="darth" width="339" height="345"/>
-        <image name="jigsaw" width="339" height="345"/>
-        <image name="rabbit" width="339" height="345"/>
-        <image name="shao" width="345" height="345"/>
-        <image name="turtle" width="339" height="345"/>
+        <image name="normal-alien" width="405" height="405"/>
+        <image name="normal-darth" width="405" height="405"/>
+        <image name="normal-jigsaw" width="405" height="408"/>
+        <image name="normal-rabbit" width="405" height="405"/>
+        <image name="normal-shao" width="405" height="405"/>
+        <image name="normal-turtle" width="405" height="405"/>
+        <image name="selected-alien" width="405" height="405"/>
+        <image name="selected-darth" width="405" height="405"/>
+        <image name="selected-jigsaw" width="405" height="408"/>
+        <image name="selected-rabbit" width="405" height="405"/>
+        <image name="selected-shao" width="405" height="405"/>
+        <image name="selected-turtle" width="405" height="405"/>
     </resources>
 </document>

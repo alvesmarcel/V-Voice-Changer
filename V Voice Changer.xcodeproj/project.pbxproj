@@ -13,8 +13,7 @@
 		285D03822251072600922F95 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03812251072600922F95 /* AudioFile.swift */; };
 		285D03842252320000922F95 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03832252320000922F95 /* Alerts.swift */; };
 		285D03862253A1E200922F95 /* AudioFXProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03852253A1E200922F95 /* AudioFXProcessor.swift */; };
-		285D038822550A6900922F95 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D038722550A6900922F95 /* SplashScreenViewController.swift */; };
-		285D038A22550EE100922F95 /* audio_wave_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 285D038922550EE100922F95 /* audio_wave_animation.json */; };
+		2871B6EB225BB1D100956141 /* recording_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2871B6EA225BB1D100956141 /* recording_animation.json */; };
 		28CBD6D8225568060031CDDB /* record_button_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 28CBD6D7225568060031CDDB /* record_button_animation.json */; };
 		28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAC224B975E005DBA7D /* AppDelegate.swift */; };
 		28DD2CAF224B975E005DBA7D /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */; };
@@ -49,8 +48,7 @@
 		285D03812251072600922F95 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 		285D03832252320000922F95 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		285D03852253A1E200922F95 /* AudioFXProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFXProcessor.swift; sourceTree = "<group>"; };
-		285D038722550A6900922F95 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		285D038922550EE100922F95 /* audio_wave_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = audio_wave_animation.json; sourceTree = "<group>"; };
+		2871B6EA225BB1D100956141 /* recording_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recording_animation.json; sourceTree = "<group>"; };
 		28CBD6D7225568060031CDDB /* record_button_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_button_animation.json; sourceTree = "<group>"; };
 		28DD2CA9224B975E005DBA7D /* V Voice Changer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V Voice Changer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DD2CAC224B975E005DBA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +101,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2871B6EC225BB28E00956141 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				28CBD6D7225568060031CDDB /* record_button_animation.json */,
+				2871B6EA225BB1D100956141 /* recording_animation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		28DD2CA0224B975D005DBA7D = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +135,6 @@
 		28DD2CAB224B975E005DBA7D /* V Voice Changer */ = {
 			isa = PBXGroup;
 			children = (
-				285D038922550EE100922F95 /* audio_wave_animation.json */,
-				28CBD6D7225568060031CDDB /* record_button_animation.json */,
 				28DD2CAC224B975E005DBA7D /* AppDelegate.swift */,
 				28DD2CDC224B97C9005DBA7D /* Controller */,
 				28DD2CDB224B97C2005DBA7D /* View */,
@@ -169,6 +174,7 @@
 		28DD2CDB224B97C2005DBA7D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2871B6EC225BB28E00956141 /* Animations */,
 				28DD2CDE224B983B005DBA7D /* Storyboards */,
 			);
 			path = View;
@@ -177,7 +183,6 @@
 		28DD2CDC224B97C9005DBA7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				285D038722550A6900922F95 /* SplashScreenViewController.swift */,
 				28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */,
 				285D037F2251020A00922F95 /* PlayerViewController.swift */,
 				285D03852253A1E200922F95 /* AudioFXProcessor.swift */,
@@ -318,7 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285D038A22550EE100922F95 /* audio_wave_animation.json in Resources */,
+				2871B6EB225BB1D100956141 /* recording_animation.json in Resources */,
 				28DD2CB7224B975F005DBA7D /* LaunchScreen.storyboard in Resources */,
 				28DD2CB4224B975F005DBA7D /* Assets.xcassets in Resources */,
 				28DD2CB2224B975E005DBA7D /* Main.storyboard in Resources */,
@@ -374,7 +379,6 @@
 			files = (
 				284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */,
 				285D03802251020A00922F95 /* PlayerViewController.swift in Sources */,
-				285D038822550A6900922F95 /* SplashScreenViewController.swift in Sources */,
 				285D03862253A1E200922F95 /* AudioFXProcessor.swift in Sources */,
 				28DD2CAF224B975E005DBA7D /* RecorderViewController.swift in Sources */,
 				28DD2CAD224B975E005DBA7D /* AppDelegate.swift in Sources */,
