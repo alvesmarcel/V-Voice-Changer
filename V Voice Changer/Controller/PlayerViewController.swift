@@ -33,6 +33,11 @@ extension PlayerViewController {
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
         self.navigationItem.rightBarButtonItem  = shareButton
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        audioProcessor?.stop()
+        super.viewWillDisappear(animated)
+    }
 }
 
 // MARK: - Actions

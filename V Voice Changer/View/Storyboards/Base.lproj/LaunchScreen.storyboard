@@ -18,17 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="0kz-3h-kaU">
-                                <rect key="frame" x="107" y="303" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="WKW-2x-gkf"/>
-                                    <constraint firstAttribute="width" constant="200" id="b4l-l7-ZBH"/>
-                                </constraints>
+                                <rect key="frame" x="104.5" y="278.5" width="205" height="204.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0kz-3h-kaU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.9" id="I7a-QW-D6O"/>
-                            <constraint firstItem="0kz-3h-kaU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NDp-Ja-LTh"/>
+                            <constraint firstItem="0kz-3h-kaU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NL6-16-3qD"/>
+                            <constraint firstItem="0kz-3h-kaU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.85" id="vmn-39-yEz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="wave" width="2048" height="2048"/>
+        <image name="wave" width="204.66667175292969" height="204.66667175292969"/>
     </resources>
 </document>

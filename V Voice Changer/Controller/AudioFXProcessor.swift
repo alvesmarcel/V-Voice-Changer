@@ -24,9 +24,7 @@ class AudioFXProcessor {
     
     private func prepareAudioEngineForEffect(_ effect: Effect) {
         // It's needed to stop and reset the audio engine before creating a new one to avoid crashing
-        audioPlayerNode.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stop()
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attach(audioPlayerNode)
@@ -150,5 +148,11 @@ class AudioFXProcessor {
             print("Error starting audio engine.\n\(error.localizedDescription)")
         }
         audioPlayerNode.play()
+    }
+    
+    func stop() {
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
 }
