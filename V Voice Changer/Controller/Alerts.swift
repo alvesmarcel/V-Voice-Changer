@@ -8,6 +8,7 @@ final class Alerts {
         case audioRecorder
         case recording
         case audioEngine
+        case audioRendering
     }
     
     static func presentPermissionDeniedAlert(sender: UIViewController) {
@@ -39,6 +40,8 @@ final class Alerts {
             alert = UIAlertController(title: "Recording Error", message: "There was a problem with audio recording", preferredStyle: .alert)
         case .audioEngine:
             alert = UIAlertController(title: "Audio Engine Error", message: "The audio engine could not be started.", preferredStyle: .alert)
+        case .audioRendering:
+            alert = UIAlertController(title: "Audio Rendering Error", message: "Error during offline audio rendering", preferredStyle: .alert)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alert.addAction(cancelAction)

@@ -22,6 +22,7 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        cleanPreviousFilesFromDirectory()
         if let audioFile = recordedAudio {
             do {
                 try self.audioProcessor = AudioFXProcessor(audioFile: audioFile)
@@ -37,33 +38,31 @@ extension PlayerViewController {
 // MARK: - Actions
 extension PlayerViewController {
     @IBAction func playButtonTapped(_ sender: UIButton) {
-        guard let identifier = sender.restorationIdentifier, let enumId = ButtonIdentifier(rawValue: identifier) else { return }
         configureButtonUI(button: sender)
-        var effect: AudioFXProcessor.Effect = .none
-        switch enumId {
-        case .TurtleButton:
-            effect = .slow
-        case .RabbitButton:
-            effect = .fast
-        case .AlienButton:
-            effect = .chipmunk
-        case .DarthButton:
-            effect = .darthvader
-        case .ShaoButton:
-            effect = .shaokahn
-        case .JigsawButton:
-            effect = .jigsaw
-        }
+        let effect = effectForButton(sender)
         audioProcessor?.play(withEffect: effect)
     }
     
     @objc func shareButtonTapped() {
-        if let fileURL = urlFileForSelectedButton() {
-            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-            activityViewController.excludedActivityTypes = [.airDrop]
-            self.present(activityViewController, animated: true, completion: nil)
+        guard let selected = selectedButton else { return }
+        let effect = effectForButton(selected)
+        
+        guard let fileURL = try? PersistenceManager.shared.urlForEffect(effect) else { return }
+        
+        // If the file already exists, we don't need to process the audio again
+        if !FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try audioProcessor?.manualAudioRender(effect: effect)
+            } catch {
+                Alerts.present(error: .audioRendering, sender: self)
+                return
+            }
         }
+        
+        let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        activityViewController.excludedActivityTypes = [.addToReadingList, .airDrop, .copyToPasteboard, .markupAsPDF, .openInIBooks, .print, .saveToCameraRoll]
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
 
@@ -77,40 +76,29 @@ extension PlayerViewController {
         selectedButton = button
     }
     
-    func urlFileForSelectedButton() -> URL? {
-        var url: URL?
-        do {
-            if let selected = selectedButton {
-                switch selected {
-                case turtleButton:
-                    url = try PersistenceManager.shared.urlForEffect(.slow)
-                case rabbitButton:
-                    url = try PersistenceManager.shared.urlForEffect(.fast)
-                case alienButton:
-                    url = try PersistenceManager.shared.urlForEffect(.chipmunk)
-                case darthButton:
-                    url = try PersistenceManager.shared.urlForEffect(.darthvader)
-                case shaoButton:
-                    url = try PersistenceManager.shared.urlForEffect(.shaokahn)
-                case jigsawButton:
-                    url = try PersistenceManager.shared.urlForEffect(.jigsaw)
-                default:
-                    print("No known button selected")
-                }
-            }
-        } catch {
-            Alerts.present(error: .url, sender: self)
+    func effectForButton(_ button: UIButton) -> AudioFXProcessor.Effect {
+        switch button {
+        case turtleButton:
+            return .slow
+        case rabbitButton:
+            return .fast
+        case alienButton:
+            return .chipmunk
+        case darthButton:
+            return .darthvader
+        case shaoButton:
+            return .shaokahn
+        case jigsawButton:
+            return .jigsaw
+        default:
+            return .none
         }
-        return url
     }
     
-    func saveEffectsFiles() {
+    func cleanPreviousFilesFromDirectory() {
         for effect in AudioFXProcessor.Effect.allValues {
-            audioProcessor?.manualAudioRender(effect: effect, completionHandler: { (url, error) in
-                if let error = error {
-                    print("Error rendering audio file.\n\(error.localizedDescription)")
-                }
-            })
+            guard let url = try? PersistenceManager.shared.urlForEffect(effect) else { return }
+            try? FileManager.default.removeItem(at: url)
         }
     }
 }
