@@ -13,77 +13,12 @@ class AudioFXProcessor {
         static let allValues = [none, slow, fast, darthvader, chipmunk, jigsaw, shaokahn]
     }
 
+    private let maxNumberOfFrames: AVAudioFrameCount = 8192
     private let avAudioFile: AVAudioFile!
     private var audioPlayerNode = AVAudioPlayerNode()
     private var audioEngine = AVAudioEngine()
-    private let maxNumberOfFrames: AVAudioFrameCount = 8192
     
-    init(audioFile: AudioFile) throws {
-        self.avAudioFile = try AVAudioFile(forReading: audioFile.url)
-    }
-    
-    private func prepareAudioEngineForEffect(_ effect: Effect) {
-        // It's needed to stop and reset the audio engine before creating a new one to avoid crashing
-        stop()
-        audioEngine = AVAudioEngine()
-        audioPlayerNode = AVAudioPlayerNode()
-        audioEngine.attach(audioPlayerNode)
-        var previousNode: AVAudioNode = audioPlayerNode
-        for audioUnit in getAudioUnits(effect: effect) {
-            audioEngine.attach(audioUnit)
-            audioEngine.connect(previousNode, to: audioUnit, format: nil)
-            previousNode = audioUnit
-        }
-        audioEngine.connect(previousNode, to: audioEngine.mainMixerNode, format: nil)
-    }
-    
-    func manualAudioRender(effect: Effect) throws {
-        prepareAudioEngineForEffect(effect)
-        
-        audioPlayerNode.scheduleFile(avAudioFile, at: nil)
-        try audioEngine.enableManualRenderingMode(.offline, format: avAudioFile.processingFormat, maximumFrameCount: maxNumberOfFrames)
-
-        try audioEngine.start()
-        audioPlayerNode.play()
-        
-        let outputFile: AVAudioFile
-        let url = try PersistenceManager.shared.urlForFile(named: effect.rawValue)
-        let recordSettings = avAudioFile.fileFormat.settings
-        outputFile = try AVAudioFile(forWriting: url, settings: recordSettings)
-        
-        let buffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
-        var outputFileLength = avAudioFile.length
-        
-        // The file will have double the length because the rate is half
-        if effect == .slow {
-            outputFileLength *= 2
-        }
-        
-        // The file will have half the length because the rate is double
-        if effect == .fast {
-            outputFileLength /= 2
-        }
-        
-        while audioEngine.manualRenderingSampleTime < outputFileLength {
-            let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(outputFileLength - audioEngine.manualRenderingSampleTime))
-            let status = try audioEngine.renderOffline(framesToRender, to: buffer)
-            switch status {
-            case .success:
-                try outputFile.write(from: buffer)
-            case .error:
-                print("Error rendering offline audio")
-                return
-            default:
-                break
-            }
-        }
-        
-        audioPlayerNode.stop()
-        audioEngine.stop()
-        audioEngine.disableManualRenderingMode()
-    }
-    
-    private func getPreprocessorAudioUnit() -> AVAudioUnitEQ {
+    private var preprocessorAudioUnit: AVAudioUnitEQ {
         let eq = AVAudioUnitEQ(numberOfBands: 3)
         eq.bands[0].filterType = .highPass
         eq.bands[0].frequency = 80
@@ -100,12 +35,34 @@ class AudioFXProcessor {
         eq.bands[2].gain = 4
         eq.bands[2].bandwidth = 2000
         eq.bands[2].bypass = false
-
+        
         return eq
     }
     
-    private func getAudioUnits(effect: Effect) -> [AVAudioUnit] {
-        var effectsArray: [AVAudioUnit] = [getPreprocessorAudioUnit()]
+    init(audioFile: AudioFile) throws {
+        self.avAudioFile = try AVAudioFile(forReading: audioFile.url)
+    }
+}
+
+// MARK: - Private methods
+extension AudioFXProcessor {
+    private func prepareAudioEngine(forEffect effect: Effect) {
+        // It's needed to stop and reset the audio engine before creating a new one to avoid crashing
+        stop()
+        audioEngine = AVAudioEngine()
+        audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attach(audioPlayerNode)
+        var previousNode: AVAudioNode = audioPlayerNode
+        for audioUnit in audioUnits(forEffect: effect) {
+            audioEngine.attach(audioUnit)
+            audioEngine.connect(previousNode, to: audioUnit, format: nil)
+            previousNode = audioUnit
+        }
+        audioEngine.connect(previousNode, to: audioEngine.mainMixerNode, format: nil)
+    }
+    
+    private func audioUnits(forEffect effect: Effect) -> [AVAudioUnit] {
+        var effectsArray: [AVAudioUnit] = [preprocessorAudioUnit]
         switch effect {
         case .slow:
             let slow = AVAudioUnitTimePitch()
@@ -148,10 +105,59 @@ class AudioFXProcessor {
         }
         return effectsArray
     }
+}
 
+// MARK: Internal methods
+extension AudioFXProcessor {
+    func manualAudioRender(effect: Effect) throws {
+        prepareAudioEngine(forEffect: effect)
+        
+        audioPlayerNode.scheduleFile(avAudioFile, at: nil)
+        try audioEngine.enableManualRenderingMode(.offline, format: avAudioFile.processingFormat, maximumFrameCount: maxNumberOfFrames)
+        
+        try audioEngine.start()
+        audioPlayerNode.play()
+        
+        let outputFile: AVAudioFile
+        let url = try PersistenceManager.shared.urlForFile(named: effect.rawValue)
+        let recordSettings = avAudioFile.fileFormat.settings
+        outputFile = try AVAudioFile(forWriting: url, settings: recordSettings)
+        
+        let buffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
+        var outputFileLength = avAudioFile.length
+        
+        // The file will have double the length because the rate is half
+        if effect == .slow {
+            outputFileLength *= 2
+        }
+        
+        // The file will have half the length because the rate is double
+        if effect == .fast {
+            outputFileLength /= 2
+        }
+        
+        while audioEngine.manualRenderingSampleTime < outputFileLength {
+            let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(outputFileLength - audioEngine.manualRenderingSampleTime))
+            let status = try audioEngine.renderOffline(framesToRender, to: buffer)
+            switch status {
+            case .success:
+                try outputFile.write(from: buffer)
+            case .error:
+                print("Error rendering offline audio")
+                return
+            default:
+                break
+            }
+        }
+        
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        audioEngine.disableManualRenderingMode()
+    }
+    
     func play(withEffect effect: Effect) {
         audioPlayerNode = AVAudioPlayerNode()
-        prepareAudioEngineForEffect(effect)
+        prepareAudioEngine(forEffect: effect)
         audioPlayerNode.scheduleFile(avAudioFile, at: nil, completionHandler: nil)
         do {
             try audioEngine.start()
