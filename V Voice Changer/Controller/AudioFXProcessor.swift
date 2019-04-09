@@ -12,11 +12,11 @@ class AudioFXProcessor {
         
         static let allValues = [none, slow, fast, darthvader, chipmunk, jigsaw, shaokahn]
     }
-    
+
     private let avAudioFile: AVAudioFile!
     private var audioPlayerNode = AVAudioPlayerNode()
     private var audioEngine = AVAudioEngine()
-    private let maxNumberOfFrames: AVAudioFrameCount = 8096
+    private let maxNumberOfFrames: AVAudioFrameCount = 8192
     
     init(audioFile: AudioFile) throws {
         self.avAudioFile = try AVAudioFile(forReading: audioFile.url)
@@ -34,7 +34,7 @@ class AudioFXProcessor {
             audioEngine.connect(previousNode, to: audioUnit, format: nil)
             previousNode = audioUnit
         }
-        audioEngine.connect(previousNode, to: audioEngine.outputNode, format: nil)
+        audioEngine.connect(previousNode, to: audioEngine.mainMixerNode, format: nil)
     }
     
     func manualAudioRender(effect: Effect) throws {
@@ -52,9 +52,20 @@ class AudioFXProcessor {
         outputFile = try AVAudioFile(forWriting: url, settings: recordSettings)
         
         let buffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
+        var outputFileLength = avAudioFile.length
         
-        while audioEngine.manualRenderingSampleTime < avAudioFile.length {
-            let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(avAudioFile.length - audioEngine.manualRenderingSampleTime))
+        // The file will have double the length because the rate is half
+        if effect == .slow {
+            outputFileLength *= 2
+        }
+        
+        // The file will have half the length because the rate is double
+        if effect == .fast {
+            outputFileLength /= 2
+        }
+        
+        while audioEngine.manualRenderingSampleTime < outputFileLength {
+            let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(outputFileLength - audioEngine.manualRenderingSampleTime))
             let status = try audioEngine.renderOffline(framesToRender, to: buffer)
             switch status {
             case .success:

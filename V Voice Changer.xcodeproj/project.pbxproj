@@ -136,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				28DD2CAC224B975E005DBA7D /* AppDelegate.swift */,
+				285D03832252320000922F95 /* Alerts.swift */,
 				28DD2CDC224B97C9005DBA7D /* Controller */,
 				28DD2CDB224B97C2005DBA7D /* View */,
 				28DD2CDA224B97BA005DBA7D /* Model */,
@@ -186,7 +187,6 @@
 				28DD2CAE224B975E005DBA7D /* RecorderViewController.swift */,
 				285D037F2251020A00922F95 /* PlayerViewController.swift */,
 				285D03852253A1E200922F95 /* AudioFXProcessor.swift */,
-				285D03832252320000922F95 /* Alerts.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
