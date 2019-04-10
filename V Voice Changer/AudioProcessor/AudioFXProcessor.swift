@@ -173,3 +173,8 @@ extension AudioFXProcessor {
         audioEngine.reset()
     }
 }
+
+// TODO:
+// - Write a class for every effect
+// - Write a protocol for the effect
+// - Change effectsArray
