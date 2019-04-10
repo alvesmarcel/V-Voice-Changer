@@ -16,6 +16,7 @@
 		283B40CB225E567E00C790CA /* DarthVaderEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B40CA225E567E00C790CA /* DarthVaderEffect.swift */; };
 		283B40CD225E56D800C790CA /* EffectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B40CC225E56D800C790CA /* EffectFactory.swift */; };
 		283B40CF225E5A8A00C790CA /* JigsawEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B40CE225E5A8A00C790CA /* JigsawEffect.swift */; };
+		283B40D1225E9DDD00C790CA /* AlienEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B40D0225E9DDD00C790CA /* AlienEffect.swift */; };
 		284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284BF162224FB472003D5DB5 /* PersistenceManager.swift */; };
 		285D03802251020A00922F95 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D037F2251020A00922F95 /* PlayerViewController.swift */; };
 		285D03822251072600922F95 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D03812251072600922F95 /* AudioFile.swift */; };
@@ -59,6 +60,7 @@
 		283B40CA225E567E00C790CA /* DarthVaderEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarthVaderEffect.swift; sourceTree = "<group>"; };
 		283B40CC225E56D800C790CA /* EffectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectFactory.swift; sourceTree = "<group>"; };
 		283B40CE225E5A8A00C790CA /* JigsawEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JigsawEffect.swift; sourceTree = "<group>"; };
+		283B40D0225E9DDD00C790CA /* AlienEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlienEffect.swift; sourceTree = "<group>"; };
 		284BF162224FB472003D5DB5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		285D037F2251020A00922F95 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		285D03812251072600922F95 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				283B40CA225E567E00C790CA /* DarthVaderEffect.swift */,
 				283B40BB225E29D200C790CA /* ShaoKahnEffect.swift */,
 				283B40CE225E5A8A00C790CA /* JigsawEffect.swift */,
+				283B40D0225E9DDD00C790CA /* AlienEffect.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				284BF163224FB472003D5DB5 /* PersistenceManager.swift in Sources */,
 				285D03802251020A00922F95 /* PlayerViewController.swift in Sources */,
+				283B40D1225E9DDD00C790CA /* AlienEffect.swift in Sources */,
 				283B40C5225E548100C790CA /* SlowEffect.swift in Sources */,
 				283B40C9225E55A900C790CA /* ChipmunkEffect.swift in Sources */,
 				285D03862253A1E200922F95 /* AudioFXProcessor.swift in Sources */,

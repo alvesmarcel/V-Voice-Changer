@@ -3,7 +3,7 @@ import AVFoundation
 class EffectFactory {
     
     enum EffectName: CaseIterable {
-        case slow, fast, chipmunk, darthvader, shaokahn, jigsaw
+        case slow, fast, alien, darthvader, shaokahn, jigsaw, chipmunk
     }
     
     // Singleton pattern
@@ -16,14 +16,16 @@ class EffectFactory {
             return SlowEffect()
         case .fast:
             return FastEffect()
-        case .chipmunk:
-            return ChipmunkEffect()
+        case .alien:
+            return AlienEffect()
         case .darthvader:
             return DarthVaderEffect()
         case .shaokahn:
             return ShaoKahnEffect()
         case .jigsaw:
             return JigsawEffect()
+        case .chipmunk:
+            return ChipmunkEffect()
         }
     }
 }

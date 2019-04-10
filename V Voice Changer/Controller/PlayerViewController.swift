@@ -89,7 +89,7 @@ extension PlayerViewController {
         case rabbitButton:
             effectName = .fast
         case alienButton:
-            effectName = .chipmunk
+            effectName = .alien
         case darthButton:
             effectName = .darthvader
         case shaoButton:
