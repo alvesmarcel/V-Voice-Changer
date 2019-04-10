@@ -52,7 +52,7 @@ extension PlayerViewController {
         guard let selected = selectedButton else { return }
         let effect = effectForButton(selected)
         
-        guard let fileURL = try? PersistenceManager.shared.urlForEffect(effect) else { return }
+        guard let fileURL = try? PersistenceManager.shared.urlForEffect(named: effect.name) else { return }
         
         // If the file already exists, we don't need to process the audio again
         if !FileManager.default.fileExists(atPath: fileURL.path) {
@@ -81,28 +81,30 @@ extension PlayerViewController {
         selectedButton = button
     }
     
-    func effectForButton(_ button: UIButton) -> AudioFXProcessor.Effect {
+    func effectForButton(_ button: UIButton) -> Effect {
+        var effectName: EffectFactory.EffectName!
         switch button {
         case turtleButton:
-            return .slow
+            effectName = .slow
         case rabbitButton:
-            return .fast
+            effectName = .fast
         case alienButton:
-            return .chipmunk
+            effectName = .chipmunk
         case darthButton:
-            return .darthvader
+            effectName = .darthvader
         case shaoButton:
-            return .shaokahn
+            effectName = .shaokahn
         case jigsawButton:
-            return .jigsaw
+            effectName = .jigsaw
         default:
-            return .none
+            print("No recognizable effect")
         }
+        return EffectFactory.shared.effect(forName: effectName)
     }
     
     func cleanPreviousFilesFromDirectory() {
-        for effect in AudioFXProcessor.Effect.allValues {
-            guard let url = try? PersistenceManager.shared.urlForEffect(effect) else { return }
+        for effectName in EffectFactory.EffectName.allCases {
+            guard let url = try? PersistenceManager.shared.urlForEffect(named: effectName) else { return }
             try? FileManager.default.removeItem(at: url)
         }
     }
