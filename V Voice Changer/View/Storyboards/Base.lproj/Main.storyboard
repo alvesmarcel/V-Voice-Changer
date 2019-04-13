@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-wH-5eS" userLabel="Main Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-wH-5eS" userLabel="Main Stack View">
                                 <rect key="frame" x="50" y="114" width="275" height="433"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="leO-fp-1Ax">
@@ -197,13 +198,13 @@
     </scenes>
     <resources>
         <image name="normal-alien" width="405" height="405"/>
-        <image name="normal-darth" width="405" height="405"/>
+        <image name="normal-darth" width="402" height="402"/>
         <image name="normal-jigsaw" width="405" height="408"/>
         <image name="normal-rabbit" width="405" height="405"/>
         <image name="normal-shao" width="405" height="405"/>
         <image name="normal-turtle" width="405" height="405"/>
         <image name="selected-alien" width="405" height="405"/>
-        <image name="selected-darth" width="405" height="405"/>
+        <image name="selected-darth" width="402" height="402"/>
         <image name="selected-jigsaw" width="405" height="408"/>
         <image name="selected-rabbit" width="405" height="405"/>
         <image name="selected-shao" width="405" height="405"/>
