@@ -24,3 +24,7 @@ The purpose of developing this app was to achieve three goals:
 ## Acknowledgments
 
 The user interface, aka of this app was designed by [UXPotato](https://uxpotato.wixsite.com/uxpotato).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/alvesmarcel/V-Voice-Changer/blob/master/LICENSE) file for details.
