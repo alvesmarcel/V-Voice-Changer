@@ -8,7 +8,7 @@ The purpose of developing this app was to achieve three goals:
 
 * Create new voice effects that I couldn't find in any other voice changer app, namely "Ruler of the Other World" and "Game Master" voice effects;
 * Test the [Lottie library](https://airbnb.design/lottie/), created by Airbnb, to perform iOS animations;
-* Improve the code architecture of the Udacity's Pitch Perfect project without adding a lot of complexity for educational purposes.
+* Improve the code architecture of the Udacity's Pitch Perfect project, without adding much complexity, for educational purposes.
 
 ## Technologies used
 
@@ -23,7 +23,7 @@ The purpose of developing this app was to achieve three goals:
 
 ## Acknowledgments
 
-The user interface, aka of this app was designed by [UXPotato](https://uxpotato.wixsite.com/uxpotato).
+The user interface of this app was designed by [UXPotato](https://uxpotato.wixsite.com/uxpotato).
 
 ## License
 
